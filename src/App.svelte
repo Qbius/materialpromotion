@@ -1,6 +1,6 @@
 <script>
 	async function get_tp_info() {
-		const response = await fetch('https://promotion-five.vercel.app/api/tpinfo?ids=24300');
+		const response = await fetch('/api/tpinfo?ids=24300');
 		if (response.ok) {
 			const json = await response.json();
 			console.log(json);
@@ -17,7 +17,7 @@
 		<h1>Loading...</h1>
 	{:then tpinfo}
 		{#each tpinfo as info}
-			<h1>{info[0]}: {info[0][0]} {info[0][1]}</h1>
+			<h1>{info[0]}: {info[1][0]} {info[1][1]}</h1>
 		{/each}
 	{:catch error}
 		<h1>{error}</h1>
