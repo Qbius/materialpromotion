@@ -3,8 +3,11 @@
 </script>
 
 <main>
-	<h1>Hello {name}!</h1>
-	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
+	{#await fetch('https://promotion-five.vercel.app/api/tpinfo?ids=24300')}
+		<h1>Loading...</h1>
+	{:then response}
+		<h1>{response.body}</h1>
+	{/await}
 </main>
 
 <style>
