@@ -3,7 +3,7 @@
 		return fetch('https://promotion-five.vercel.app/api/tpinfo?ids=24300')
 			.then(response => response.json())
 			.then(data => data.results)
-			.error(console.log);
+			.catch(console.log);
 	}
 </script>
 
