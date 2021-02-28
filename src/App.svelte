@@ -5,7 +5,7 @@
 			const json = await response.json();
 			console.log(json);
 			console.log(JSON.stringify(json));
-			return response.json();
+			return Object.entries(json);
 		}
 		else
 			throw new Error('Error loading trading post info');
@@ -16,8 +16,8 @@
 	{#await get_tp_info()}
 		<h1>Loading...</h1>
 	{:then tpinfo}
-		{#each tpinfo as {id, info} (id)}
-			<h1>{id}: {info[0]} {info[1]}</h1>
+		{#each tpinfo as info}
+			<h1>{info[0]}: {info[0][0]} {info[0][1]}</h1>
 		{/each}
 	{:catch error}
 		<h1>{error}</h1>
