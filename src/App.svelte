@@ -1,6 +1,21 @@
 <script>
+	import {localhost, range} from './common.js';
+
+	const materials = {
+		dust: range(6).map(i => 24272 + i),
+		sac: range(6).map(i => 24278 + i),
+		scale: range(6).map(i => 24284 + i),
+		blood: range(6).map(i => 24290 + i),
+		totem: [].concat(range(4).map(i => 24296 + i), [24363], [24300]),
+		claw: range(6).map(i => 24346 + i),
+		fang: range(6).map(i => 24352 + i),
+		bone: [].concat(range(4).map(i => 24342 + i), [24341], [24358]),
+	};
+
 	async function get_tp_info() {
-		const response = await fetch('/api/tpinfo?ids=24300');
+		if (localhost) return [];
+		
+		const response = await fetch('/api/tpinfo?ids=' + [].concat(...Object.values(materials)).join(','));
 		if (response.ok) {
 			const json = await response.json();
 			console.log(json);
