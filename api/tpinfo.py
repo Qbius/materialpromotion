@@ -5,9 +5,7 @@ from json import loads, dumps
 
 class handler(BaseHTTPRequestHandler):
     def do_GET(self):
-        print('test')
-        print(self.path)
-        parameters = parse_qs(self.path[2:])
+        parameters = parse_qs(self.path.split('?')[1]) if '?' in self.path else {}
         error = ''
 
         if 'ids' not in parameters:
