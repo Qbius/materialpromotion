@@ -1,8 +1,14 @@
 <script>
 	async function get_tp_info() {
 		const response = await fetch('https://promotion-five.vercel.app/api/tpinfo?ids=24300');
-		if (response.ok)
-			return response.json();
+		if (response.ok) {
+			const json = await response.json();
+			console.log('trying to show the json');
+			console.log(json);
+			console.log(JSON.stringify(json));
+			console.log('trying to show the json end');
+			return json;
+		}
 		else
 			throw new Error('Error loading trading post info');
 	}
