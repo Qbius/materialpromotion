@@ -17,7 +17,7 @@ class handler(BaseHTTPRequestHandler):
             self.send_response(400)
             self.send_header('Content-type', 'text/plain')
             self.end_headers()
-            self.wfile.write(error.encode())
+            self.wfile.write(error)
         else:
             payload = loads(urlopen('https://api.guildwars2.com/v2/commerce/prices?ids=' + ','.join(parameters['ids'])).read())
             info = {priceinfo['id']: (priceinfo['buys']['unit_price'], priceinfo['sells']['unit_price']) for priceinfo in payload}
@@ -25,4 +25,4 @@ class handler(BaseHTTPRequestHandler):
             self.send_response(200)
             self.send_header('Content-type', 'application/json')
             self.end_headers()
-            self.wfile.write(dumps(info).encode())
+            self.wfile.write(dumps(info))
