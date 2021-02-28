@@ -1,12 +1,17 @@
 <script>
-	export let name;
+	async function get_tp_info() {
+		return fetch('https://promotion-five.vercel.app/api/tpinfo?ids=24300')
+			.then(response => response.json())
+			.then(data => data.results)
+			.error(console.log);
+	}
 </script>
 
 <main>
-	{#await fetch('https://promotion-five.vercel.app/api/tpinfo?ids=24300')}
+	{#await get_tp_info()}
 		<h1>Loading...</h1>
 	{:then response}
-		<h1>{response.body}</h1>
+		<h1>{response}</h1>
 	{/await}
 </main>
 
