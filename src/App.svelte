@@ -1,6 +1,4 @@
 <script>
-const { identity }=require("svelte/internal");
-
 	async function get_tp_info() {
 		const response = await fetch('https://promotion-five.vercel.app/api/tpinfo?ids=24300');
 		if (response.ok)
