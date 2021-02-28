@@ -1,14 +1,8 @@
 <script>
 	async function get_tp_info() {
 		const response = await fetch('https://promotion-five.vercel.app/api/tpinfo?ids=24300');
-		if (response.ok) {
-			const json = await response.json();
-			console.log('trying to show the json');
-			console.log(json);
-			console.log(JSON.stringify(json));
-			console.log('trying to show the json end');
-			return json;
-		}
+		if (response.ok)
+			return response.json();
 		else
 			throw new Error('Error loading trading post info');
 	}
@@ -18,7 +12,7 @@
 	{#await get_tp_info()}
 		<h1>Loading...</h1>
 	{:then tpinfo}
-		{#each tpinfo as {id, info}}
+		{#each tpinfo as {id, info} (id)}
 			<h1>{id}: {info[0]} {info[1]}</h1>
 		{/each}
 	{:catch error}
