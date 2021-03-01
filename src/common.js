@@ -8,7 +8,7 @@ export const materials = {
     dust: range(6).map(i => 24272 + i),
     fang: range(6).map(i => 24352 + i),
     scale: range(6).map(i => 24284 + i),
-    totem: [].concat(range(4).map(i => 24296 + i), [24363], [24300]),
+    totem: [].concat(range(3).map(i => 24296 + i), [24363], [24299], [24300]),
     sac: range(6).map(i => 24278 + i),
 };
 
@@ -67,8 +67,8 @@ export const material_names = {
         'Tiny Totem',
         'Small Totem',
         'Totem',
-        'Intricate Totem',
         'Engraved Totem',
+        'Intricate Totem',
         'Elaborate Totem',
     ],
     sac: [      
