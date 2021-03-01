@@ -123,6 +123,16 @@
         .material-column {
             flex-direction: row;
         }
+
+        .material-cell {
+            width: 64px;
+            height: 64px;
+        }
+
+        .material-icon {
+            width: 56px;
+            height: 56px;
+        }
     }
 
 </style>
