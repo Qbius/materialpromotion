@@ -30,7 +30,6 @@
 <style>
 	main {
 		text-align: center;
-		max-width: 240px;
 
 		width: 100%;
 		height: 100%;
@@ -53,11 +52,5 @@
 		width: 100%;
 		height: 100%;
 		background-color: black;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
 	}
 </style>
