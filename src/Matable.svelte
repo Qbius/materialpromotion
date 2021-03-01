@@ -115,4 +115,14 @@
         font-size: 12px;
     }
 
+    @media only screen and (max-width: 760px) {
+        .component {
+            flex-direction: column;
+        }
+        
+        .material-column {
+            flex-direction: row;
+        }
+    }
+
 </style>
