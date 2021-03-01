@@ -1,3 +1,4 @@
+export const mobile = false;
 export const range = n => [...Array(n).keys()];
 export const localhost = location.hostname === "localhost";
 export const materials = {

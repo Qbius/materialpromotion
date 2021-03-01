@@ -9,8 +9,6 @@
 		const response = await fetch('/api/tpinfo?ids=' + [].concat(...Object.values(materials)).join(','));
 		if (response.ok) {
 			const json = await response.json();
-			console.log(json);
-			console.log(JSON.stringify(json));
 			return json;
 		}
 		else
@@ -20,15 +18,12 @@
 
 <main>
 	{#await get_tp_info()}
-		<h1>Loading...</h1>
+		<h1 style="margin: auto;">Loading...</h1>
 	{:then tpinfo}
-		<!-- {#each tpinfo as info}
-			<h1>{info[0]}: {info[1][0]} {info[1][1]}</h1>
-		{/each} -->
-		<Matable {tpinfo}/>
-
+		<div class="bg-image"><img style="width: 100%; height: 100%; filter: blur(20px);" alt="" src="/forge.png"></div>
+		<Matable style="margin: auto;" {tpinfo}/>
 	{:catch error}
-		<h1>{error}</h1>
+		<h1 style="margin: auto;">{error}</h1>
 	{/await}
 </main>
 
@@ -42,13 +37,22 @@
 
 		display: flex;
 		justify-content: center;
+		align-items: center;
+		position: relative;
 	}
 
 	h1 {
-		color: #ff3e00;
 		text-transform: uppercase;
 		font-size: 4em;
 		font-weight: 100;
+	}
+
+	.bg-image {
+		z-index: -1;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-color: black;
 	}
 
 	@media (min-width: 640px) {
